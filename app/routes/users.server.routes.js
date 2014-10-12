@@ -16,6 +16,8 @@ module.exports = function(app) {
 	app.route('/auth/reset/:token').get(users.validateResetToken);
 	app.route('/auth/reset/:token').post(users.reset);
 
+	// Setting the CAS auth routes
+	app.route('/auth/cas').get(passport.authenticate('cas'));
 
 	// Finish by binding the user middleware
 	app.param('userId', users.userByID);

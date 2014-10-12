@@ -48,10 +48,10 @@ var UserSchema = new Schema({
 		validate: [validateLocalStrategyProperty, 'Please fill in your email'],
 		match: [/.+\@.+\..+/, 'Please fill a valid email address']
 	},
-	username: {
+	netid: {
 		type: String,
 		unique: 'testing error message',
-		required: 'Please fill in a username',
+		required: 'Please fill in a netid',
 		trim: true
 	},
 	password: {
@@ -122,20 +122,20 @@ UserSchema.methods.authenticate = function(password) {
 };
 
 /**
- * Find possible not used username
+ * Find possible not used netid
  */
-UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
+UserSchema.statics.findUniquenetid = function(netid, suffix, callback) {
 	var _this = this;
-	var possibleUsername = username + (suffix || '');
+	var possiblenetid = netid + (suffix || '');
 
 	_this.findOne({
-		username: possibleUsername
+		netid: possiblenetid
 	}, function(err, user) {
 		if (!err) {
 			if (!user) {
-				callback(possibleUsername);
+				callback(possiblenetid);
 			} else {
-				return _this.findUniqueUsername(username, (suffix || 0) + 1, callback);
+				return _this.findUniquenetid(netid, (suffix || 0) + 1, callback);
 			}
 		} else {
 			callback(null);
