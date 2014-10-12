@@ -87,22 +87,26 @@ UserSchema.methods.authenticate = function(password) {
 UserSchema.statics.addAdmins = function(){
 	var _dis = this;
 	var adminUserJsonFixture = process.env.ADMIN_USERS;
-	if (adminUserJsonFixture) {
-		var adminUsers = JSON.parse(adminUserJsonFixture);
-		_dis
-			.where('netid')
-			.in(_.pluck(adminUsers, 'netid'))
-			.exec(function(err, records){
-				var foundNetids = _.pluck(records, 'netid');
-				var missingUsers = _.filter(adminUsers, function(user){
-					return !_.contains(foundNetids, user.netid);
-				});
-				_dis.collection.insert(missingUsers, function(err, users){
-					console.log('Inserted ', users.length, ' users');
-				});
-			});
-		console.log(adminUsers);
+	if (!adminUserJsonFixture) {
+		return false;
 	}
+	var adminUsers = JSON.parse(adminUserJsonFixture);
+	_dis
+		.where('netid')
+		.in(_.pluck(adminUsers, 'netid'))
+		.exec(function(err, records){
+			var foundNetids = _.pluck(records, 'netid');
+			var missingUsers = _.filter(adminUsers, function(user){
+				return !_.contains(foundNetids, user.netid);
+			});
+			_dis.collection.insert(missingUsers, function(err, users){
+				var numInserted = 0;
+				if (!_.isNull(users)) {
+					numInserted = users.length;
+				}
+				console.log('Inserted ', numInserted, ' users');
+			});
+		});
 	return true;
 };
 
