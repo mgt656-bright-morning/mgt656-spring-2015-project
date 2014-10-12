@@ -5,6 +5,7 @@
  */
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
+	_ = require('lodash'),
 	crypto = require('crypto');
 
 /**
@@ -80,5 +81,29 @@ UserSchema.methods.authenticate = function(password) {
 	return true;
 };
 
+/**
+* Create the admin users
+*/
+UserSchema.statics.addAdmins = function(){
+	var _dis = this;
+	var adminUserJsonFixture = process.env.ADMIN_USERS;
+	if (adminUserJsonFixture) {
+		var adminUsers = JSON.parse(adminUserJsonFixture);
+		_dis
+			.where('netid')
+			.in(_.pluck(adminUsers, 'netid'))
+			.exec(function(err, records){
+				var foundNetids = _.pluck(records, 'netid');
+				var missingUsers = _.filter(adminUsers, function(user){
+					return !_.contains(foundNetids, user.netid);
+				});
+				_dis.collection.insert(missingUsers, function(err, users){
+					console.log('Inserted ', users.length, ' users');
+				});
+			});
+		console.log(adminUsers);
+	}
+	return true;
+};
 
 mongoose.model('User', UserSchema);

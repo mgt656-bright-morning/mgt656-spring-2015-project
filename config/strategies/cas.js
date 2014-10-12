@@ -23,4 +23,7 @@ module.exports = function(){
       return done(null, user);
     });
   }));
+
+  User.addAdmins();
+
 };
