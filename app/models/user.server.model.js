@@ -8,66 +8,31 @@ var mongoose = require('mongoose'),
 	crypto = require('crypto');
 
 /**
- * A Validation function for local strategy properties
- */
-var validateLocalStrategyProperty = function(property) {
-	return ((this.provider !== 'local' && !this.updated) || property.length);
-};
-
-/**
- * A Validation function for local strategy password
- */
-var validateLocalStrategyPassword = function(password) {
-	return (this.provider !== 'local' || (password && password.length > 6));
-};
-
-/**
  * User Schema
  */
 var UserSchema = new Schema({
-	firstName: {
-		type: String,
-		trim: true,
-		default: '',
-		validate: [validateLocalStrategyProperty, 'Please fill in your first name']
-	},
-	lastName: {
-		type: String,
-		trim: true,
-		default: '',
-		validate: [validateLocalStrategyProperty, 'Please fill in your last name']
-	},
-	displayName: {
-		type: String,
-		trim: true
-	},
-	email: {
-		type: String,
-		trim: true,
-		default: '',
-		validate: [validateLocalStrategyProperty, 'Please fill in your email'],
-		match: [/.+\@.+\..+/, 'Please fill a valid email address']
-	},
 	netid: {
 		type: String,
 		unique: 'testing error message',
 		required: 'Please fill in a netid',
 		trim: true
 	},
-	password: {
+	email: {
 		type: String,
+		trim: true,
 		default: '',
-		validate: [validateLocalStrategyPassword, 'Password should be longer']
+		match: [/.+\@.+\..+/, 'Please fill a valid email address']
 	},
-	salt: {
-		type: String
-	},
-	provider: {
+	firstName: {
 		type: String,
-		required: 'Provider is required'
+		trim: true,
+		default: '',
 	},
-	providerData: {},
-	additionalProvidersData: {},
+	lastName: {
+		type: String,
+		trim: true,
+		default: '',
+	},
 	roles: {
 		type: [{
 			type: String,
@@ -81,24 +46,17 @@ var UserSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
-	},
-	/* For reset password */
-	resetPasswordToken: {
-		type: String
-	},
-  	resetPasswordExpires: {
-  		type: Date
-  	}
+	}
 });
 
 /**
  * Hook a pre save method to hash the password
  */
 UserSchema.pre('save', function(next) {
-	if (this.password && this.password.length > 6) {
-		this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
-		this.password = this.hashPassword(this.password);
-	}
+	// if (this.password && this.password.length > 6) {
+	// 	this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
+	// 	this.password = this.hashPassword(this.password);
+	// }
 
 	next();
 });
@@ -118,29 +76,9 @@ UserSchema.methods.hashPassword = function(password) {
  * Create instance method for authenticating user
  */
 UserSchema.methods.authenticate = function(password) {
-	return this.password === this.hashPassword(password);
+	// return this.password === this.hashPassword(password);
+	return true;
 };
 
-/**
- * Find possible not used netid
- */
-UserSchema.statics.findUniquenetid = function(netid, suffix, callback) {
-	var _this = this;
-	var possiblenetid = netid + (suffix || '');
-
-	_this.findOne({
-		netid: possiblenetid
-	}, function(err, user) {
-		if (!err) {
-			if (!user) {
-				callback(possiblenetid);
-			} else {
-				return _this.findUniquenetid(netid, (suffix || 0) + 1, callback);
-			}
-		} else {
-			callback(null);
-		}
-	});
-};
 
 mongoose.model('User', UserSchema);
