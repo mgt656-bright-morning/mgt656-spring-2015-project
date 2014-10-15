@@ -28,20 +28,15 @@ $ npm install bower
 $ npm install grunt-cli
 ```
 
-## Downloading MEAN.JS
-There are several ways you can get the MEAN.JS boilerplate: 
 
-### Yo Generator 
-The recommended way would be to use the [Official Yo Generator](http://meanjs.org/generator.html) which will generate the latest stable copy of the MEAN.JS boilerplate and supplies multiple sub-generators to ease your daily development cycles.
+## Quick Install
 
-### Cloning The GitHub Repository
-You can also use Git to directly clone the MEAN.JS repository:
+You can also use Git to directly clone this repository:
 ```
 $ git clone git@git.yale.edu:mgt656/mgt656-website.git
 ```
 This will clone the latest version of the MGT-656 repository to a **mgt656-website** folder.
 
-## Quick Install
 The next thing you should do is install the Node.js dependencies. The code comes with a package.json file that contains the list of modules you need to start the application, to learn more about the modules installed visit the NPM & Package.json section.
 
 To install Node.js dependencies you're going to use npm again, in the application folder run this in the command-line:
