@@ -7,7 +7,6 @@ module.exports = {
 		keywords: 'MGT656, Yale SOM, MongoDB, Express, AngularJS, Node.js'
 	},
 	port: process.env.PORT || 3000,
-	templateEngine: 'swig',
 	sessionSecret: 'MEAN',
 	sessionCollection: 'sessions',
 	assets: {

@@ -25,6 +25,9 @@ var app = require('./config/express')(db);
 // Bootstrap passport config
 require('./config/passport')();
 
+// Bootstrap passport config
+require('./config/nunjucks')(app);
+
 // Start the app by listening on <port>
 app.listen(config.port);
 
