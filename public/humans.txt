@@ -3,13 +3,9 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Kyle Jensen -- instructor -- @DataKyle
+    Miles Lasater -- instructor -- @MilesLasater
 
 # THANKS
 
-    <name>
-
-# TECHNOLOGY COLOPHON
-
-    HTML5, CSS3
-    jQuery, Modernizr
+    The students, TAs, faculty, and friends who helped.
