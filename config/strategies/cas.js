@@ -9,7 +9,7 @@ module.exports = function(){
     version: 'CAS3.0',
     ssoBaseURL: 'https://secure.its.yale.edu/cas',
     serverBaseURL: 'http://localhost:3000',
-    serviceURL: 'http://localhost:3000/auth/cas',
+    // serviceURL: 'http://localhost:3000/auth/cas',
     validateURL: '/serviceValidate'
   }, function(profile, done) {
     var netid = profile.user;
