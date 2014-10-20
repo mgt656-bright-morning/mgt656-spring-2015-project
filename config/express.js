@@ -96,6 +96,9 @@ module.exports = function(db) {
 		})
 	}));
 
+	// Setting the app router and static folder
+	app.use(express.static(path.resolve('./public')));
+
 	// use passport session
 	app.use(passport.initialize());
 	app.use(passport.session());
@@ -109,9 +112,6 @@ module.exports = function(db) {
 	app.use(helmet.nosniff());
 	app.use(helmet.ienoopen());
 	app.disable('x-powered-by');
-
-	// Setting the app router and static folder
-	app.use(express.static(path.resolve('./public')));
 
 	// Globbing routing files
 	config.getGlobbedFiles('./app/routes/**/*.js').forEach(function(routePath) {
