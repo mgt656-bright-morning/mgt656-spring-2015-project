@@ -41,3 +41,9 @@
 	color: rgba(51, 51, 51, 0.6);
 }
 /* END - Class dates */
+
+/* BEGIN - 401 page style */
+section.login{
+	text-align: center;
+}
+

@@ -5,6 +5,7 @@
  */
 var _ = require('lodash'),
 	mongoose = require('mongoose'),
+	casConfig = require('../../../config/cas.config.js'),
 	User = mongoose.model('User');
 
 /**
@@ -26,9 +27,17 @@ exports.userByID = function(req, res, next, id) {
  */
 exports.requiresLogin = function(req, res, next) {
 	if (!req.isAuthenticated()) {
-		return res.status(401).send({
-			message: 'User is not logged in'
-		});
+		var res401 = res.status(401);
+		var contentType = req.accepts(['html', 'json']);
+		if (contentType === 'html') {
+			return res401.render('401', {
+				loginUrl: casConfig.getLoginUrl(req)
+			});
+		}else{
+			return res401.send({
+				message: 'User is not logged in'
+			});			
+		}
 	}
 
 	next();
