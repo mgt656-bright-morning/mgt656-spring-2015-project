@@ -52,7 +52,7 @@
 
 <body>
 	<section class="content">
-		<section class="container">
+		<section class="container {% block extra_container_classes %}{% endblock %}">
 			{% block content %}{% endblock %}
 		</section>
 	</section>

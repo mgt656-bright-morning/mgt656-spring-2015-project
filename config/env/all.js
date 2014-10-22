@@ -14,7 +14,9 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-				'public/lib/fontawesome/css/font-awesome.css'
+				'public/lib/fontawesome/css/font-awesome.css',
+				'public/lib/vertical-rhythm/vertical-rhythm.css',
+				'http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700'
 			],
 			js: [
 				'public/lib/angular/angular.js',

@@ -15,6 +15,26 @@
 }
 
 
+/* BEGIN - Index page */
+/*div.class-glance{
+	margin-top:25px;
+}
+*/div.class-glance ul{
+	margin-top:15px;
+}
+section.index ul{
+	margin-top: 20px;
+}
+section.index h3{
+	margin-top: 30px;
+}
+ul.media-list{
+	margin-left: 0;
+}
+/* END - Index page */
+
+
+
 /* BEGIN - Class dates */
 .date-container{
 	text-align: center;
@@ -34,13 +54,14 @@
 	text-align: center;
 }
 .date p span, .date p strong {
-	font-size: 20px;
+	font-size: 16px;
 	text-transform: uppercase;
 	display: block;
 	color: rgba(51, 51, 51, 0.6);
 }
 .date p strong{
 	font-weight: 700;
+	font-size: 20px;
 }
 
 /* END - Class dates */
