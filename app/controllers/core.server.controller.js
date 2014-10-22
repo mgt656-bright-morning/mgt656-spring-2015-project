@@ -1,6 +1,6 @@
 'use strict';
 
-var classes = require('../models/class.server.model.js');
+var meetings = require('../models/meeting.server.model.js');
 
 /**
  * Module dependencies.
@@ -10,5 +10,5 @@ exports.index = function(req, res) {
 };
 
 exports.schedule = function(req, res) {
-  res.render('schedule');
+  res.render('schedule', {meetings: meetings.meetings});
 };
