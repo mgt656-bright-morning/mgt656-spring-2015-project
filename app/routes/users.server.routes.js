@@ -37,11 +37,11 @@ module.exports = function(app) {
 		if (req.isAuthenticated()) {
 			if(typeof(req.cookies.next) === 'string'){
 				res.redirect(req.cookies.next);
-				res.clearCookie('next', {path: '/auth'})
+				res.clearCookie('next', {path: '/auth'});
 			}else{
 				res.redirect('/');
 			}
-		};
+		}
 		next();
 	});
 
