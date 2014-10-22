@@ -44,4 +44,12 @@
       </ul>
     </div>
   </section>
+  <section  class="col-md-12">
+    <h3>Schedule</h3>
+    <ul class="media-list">
+      {% for meeting in meetings %}
+        {% include "fragments/meeting.server.view.html" %}
+      {% endfor %}
+    </ul>
+  </section>
 {% endblock %}
