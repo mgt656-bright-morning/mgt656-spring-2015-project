@@ -1,5 +1,7 @@
 'use strict';
 
+var classes = require('../models/class.server.model.js');
+
 /**
  * Module dependencies.
  */
