@@ -1,14 +1,14 @@
 'use strict';
 
-var meetings = require('../models/meeting.server.model.js');
+var lectures = require('../models/lecture.server.model.js');
 
 /**
  * Module dependencies.
  */
 exports.index = function(req, res) {
-	res.render('index', {meetings: meetings.meetings});
+	res.render('index', {lectures: lectures.all});
 };
 
 // exports.schedule = function(req, res) {
-//   res.render('schedule', {meetings: meetings.meetings});
+//   res.render('schedule', {lectures: lectures.lectures});
 // };

@@ -4,8 +4,8 @@
   <section>
     <h3>Schedule</h3>
     <ul class="media-list">
-      {% for meeting in meetings %}
-        {% include "fragments/meeting.server.view.html" %}
+      {% for lecture in lectures %}
+        {% include "fragments/lecture.server.view.html" %}
       {% endfor %}
     </ul>
   </section>
