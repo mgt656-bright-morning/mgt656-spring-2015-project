@@ -16,13 +16,9 @@ function sortByDate (a, b) {
 // Find all the lectures from their YAML files
 //
 glob('data/lectures/*.yaml', function(err, files){
-  console.log('-----------');
-  console.log(files);
-  console.log('-----------');
   for (var i = files.length - 1; i >= 0; i--) {
     exports.all.push(makeLecture(files[i]));
   }
   exports.all.sort(sortByDate);
-  console.log(exports.all);
 });
 

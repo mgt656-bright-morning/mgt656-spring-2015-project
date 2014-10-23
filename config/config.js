@@ -53,6 +53,16 @@ module.exports.getGlobbedFiles = function(globPatterns, removeRoot) {
 	return output;
 };
 
+function addSlashes (arr) {
+	for (var i = arr.length - 1; i >= 0; i--) {
+		if (arr[i].match(/^http/) === null) {
+			arr[i] = '/' + arr[i];
+			console.log('=======' + arr[i]);
+		}
+	}
+	return arr;
+}
+
 /**
  * Get the modules JavaScript files
  */
@@ -64,14 +74,14 @@ module.exports.getJavaScriptAssets = function(includeTests) {
 		output = _.union(output, this.getGlobbedFiles(this.assets.tests));
 	}
 
-	return output;
+	return addSlashes(output);
 };
 
 /**
  * Get the modules CSS files
  */
 module.exports.getCSSAssets = function() {
-	var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public/');
+	var output = addSlashes(this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public/'));
 	console.log('*************');
 	console.log(output);
 	console.log('*************');
