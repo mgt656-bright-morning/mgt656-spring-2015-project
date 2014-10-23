@@ -1,5 +1,9 @@
 {% extends 'layout.server.view.html' %}
 
+{% import "fragments/lecture-readings.server.view.html" as r %}
+{% import "fragments/lecture-assignments.server.view.html" as a %}
+
+
 {% block content %}
   <section class="row">
     <h1>{{lecture.title}}</h1>
@@ -9,10 +13,12 @@
   </section>
   <section class="row">
   	<div class="col-md-6">
-      {% include "fragments/fragments/lecture-readings.server.view.html" %}
+      {{ r.reading_list('Required Readings', lecture.required_readings) }}
+      {{ r.reading_list('Supplementary Readings', lecture.supplementary_readings) }}
     </div>
     <div class="col-md-6">
-      {% include "fragments/fragments/lecture-assignments.server.view.html" %}
+      {{ a.assignment_list('Assignments Given', lecture.assignments_given) }}
+      {{ a.assignment_list('Assignments Due', lecture.assignments_due) }}
     </div>
   </section>
 {% endblock %}

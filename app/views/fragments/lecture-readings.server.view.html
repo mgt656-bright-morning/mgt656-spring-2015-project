@@ -1,16 +1,21 @@
-<h4>Required Readings</h4>
-<ul>
-  {% for reading in lecture.readings %}
-    <li>
-      {% if reading.url -%}<a href="{{reading.url}}">{% endif %}
-      &ldquo;{{reading.title}}&rdquo;
-      {%- if reading.url %}</a>{% endif %}.
-      {%- if reading.video %} [Video]{% endif %}
-      {{reading.details}}
-      {% if reading.classes_v2 %}
-        (available in
-        <a href="https://classesv2.yale.edu/portal/site/mgt656_s15">ClassesV2</a>)
-      {% endif %}
-    </li>
-  {% endfor %}
-</ul>
+
+{% macro reading_list(heading, readings) %}
+
+  <h4>{{heading}}</h4>
+  <ul>
+    {% for reading in readings %}
+      <li>
+        {% if reading.url -%}<a href="{{reading.url}}">{% endif %}
+        &ldquo;{{reading.title}}&rdquo;
+        {%- if reading.url %}</a>{% endif %}.
+        {%- if reading.video %} [Video]{% endif %}
+        {{reading.details}}
+        {% if reading.classes_v2 %}
+          (available in
+          <a href="https://classesv2.yale.edu/portal/site/mgt656_s15">ClassesV2</a>)
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endmacro %}
