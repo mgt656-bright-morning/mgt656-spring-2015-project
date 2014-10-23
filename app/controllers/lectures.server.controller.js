@@ -13,7 +13,9 @@ function lectureDetail (req, res) {
       error: 'no such lecture: ' + req.params.slug,
     });
   }
-  return res.render('lecture', {lecture: lecture});
+  return res.render('lecture', {
+    lecture: lecture,
+  });
 }
 
 module.exports = exports = {

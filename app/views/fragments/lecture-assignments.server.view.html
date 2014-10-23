@@ -1,0 +1,27 @@
+<h4>Assignments given out</h4>
+<ul>
+  {% for reading in lecture.assignments_given %}
+    <li>
+      {% if reading.url -%}<a href="{{reading.url}}">{% endif %}
+      &ldquo;{{reading.title}}&rdquo;
+      {%- if reading.url %}</a>{% endif %}.
+      {%- if reading.video %} [Video]{% endif %}
+      {{reading.details}}
+      {% if reading.classes_v2 %}
+        (available in
+        <a href="https://classesv2.yale.edu/portal/site/mgt656_s15">ClassesV2</a>)
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+<h4>Assignments due</h4>
+<ul>
+  {% if not lecture.assignments_due %}<li><i>N/A</i></li>{% endif %}
+  {% for assignment in lecture.assignments_due %}
+    <li>
+      <a href="{{assignment.url}}">
+        {{assignment.title}}</a>, due {{assignment.due_date}}
+    </li>
+  {% endfor %}
+</ul>

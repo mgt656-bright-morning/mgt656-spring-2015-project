@@ -7,6 +7,17 @@ summary: >
   of the course and give you an overview of 1) the technologies upon which
   modern mobile web applications rely and 2) agile techniques for the
   management of teams working on software.
+readings:
+  - title: Why Software is Eating the World
+    details: Marc Andreessen, WSJ 8/20/2011
+    url: http://online.wsj.com/articles/SB10001424053111903480904576512250915629460
+    classes_v2: false
+    video: false
+  - title: Agile Project Ownership in a Nutshell
+    details: Henrik Kniberg
+    url: https://www.youtube.com/watch?v=502ILHjX9EE
+    classes_v2: false
+    video: true
 
 ---
 
