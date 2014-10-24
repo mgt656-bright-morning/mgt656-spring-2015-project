@@ -6,7 +6,9 @@
 
 {% block content %}
   <section class="row">
-    <h1>{{lecture.title}}</h1>
+    <h1>{{lecture.title}}
+      {%- if lecture.subtitle %}: <span>{{lecture.subtitle}}</span>{% endif %}
+    </h1>
     <p>
       {{lecture.content}}
     </p>

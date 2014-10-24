@@ -1,0 +1,35 @@
+---
+title: Introduction to HTML and CSS
+subtitle: Dash Project 2
+issued_with: designing-and-design
+due_with: intro-to-server-side-app-dev-and-node
+goal: >
+  Moar CSS and JavaScript!
+videos:
+  - title: Getting started with Dash
+    description: >
+      This screencast shows how to sign up for Dash
+      and get started on the first project.
+    time: 5m
+    youtube_key: lWIX5c0t8_E
+---
+
+### Background
+
+Consumers have immunerable devices of different shapes
+and sizes. To ensure that your application "looks good"
+across these devices you can use
+[responsive design](http://en.wikipedia.org/wiki/Responsive_web_design).
+In this assignment, you will learn more HTML and CSS, including
+responsive design techniques.
+
+
+### Actions and deliverables
+
+1. Complete Project 2, parts 1-3 on
+[Dash](https://dash.generalassemb.ly/projects). You do not
+need to complete step 4.
+2. At the completion of step 3, submit your code.
+It will be graded in an automated fashion.
+
+

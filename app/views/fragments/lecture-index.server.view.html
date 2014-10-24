@@ -12,6 +12,20 @@
       <a href="/lectures/{{lecture.slug}}"><h4 class="media-heading">{{lecture.title}}</h4></a>
       <p>
         {{lecture.summary}}
+        {% if lecture.assignments_due %}
+          <b>Assignments due:</b> 
+          {% for assignment in lecture.assignments_due -%}
+            <a href="/assignments/{{assignment.slug}}">{{assignment.slug|upper}}</a>
+            {%- if loop.revindex0 > 0 %} {{ "&" if loop.revindex0 == 1 else ","}} {% endif %}
+          {%- endfor %}.
+        {% endif %}
+        {% if lecture.assignments_issued %}
+          <b>Assignments issued:</b> 
+          {% for assignment in lecture.assignments_issued -%}
+            <a href="/assignments/{{assignment.slug}}">{{assignment.slug|upper}}</a>
+            {%- if loop.revindex0 > 0 %} {{ "&" if loop.revindex0 == 1 else ","}} {% endif %}
+          {%- endfor %}.
+        {% endif %}
       </p>
     </div>
   </li>

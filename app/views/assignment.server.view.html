@@ -2,15 +2,43 @@
 
 {% block content %}
   <section class="row">
-    <h1>{{assignment.title}}</h1>
+    <h1>
+      {{assignment.slug|upper}}: {{assignment.title}}
+      {%- if assignment.subtitle %}: <span>{{assignment.subtitle}}</span>{% endif %}
+    </h1>
     <p>
-      {{assignment.content}}
+      <b>Due:</b> {{assignment.due_date}}
+    </p>
+    <p>
+      <b>Goal:</b> {{assignment.goal}}
+    </p>
+    <p>
+      {{assignment.content | markdown | safe}}
     </p>
   </section>
+  {% if assignment.videos %}
   <section class="row">
-    <div class="col-md-6">
-    </div>
-    <div class="col-md-6">
+    <h3>Video tutorials</h3>
+    <ul class="media-list">
+    {% for video in assignment.videos %}
+      <li class="media">
+        <a class="pull-left" href="https://www.youtube.com/watch?v={{video.youtube_key}}">
+          <img class="media-object" alt="{{video.title}}" src="http://img.youtube.com/vi/{{video.youtube_key}}/1.jpg">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading"><a href="https://www.youtube.com/watch?v={{video.youtube_key}}">{{video.title}}</a></h4>
+          {{ video.description }}
+        </div>
+      </li>
+    {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  <section class="row">
+    <div class="col-md-12">
+      <a class="btn btn-success btn-lg" href="{{loginUrl}}">
+        <i class="fa fa-check-square-o fa-lg fa-2x"></i> Submit {{assignment.slug|upper}}
+      </a>
     </div>
   </section>
 {% endblock %}

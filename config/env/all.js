@@ -16,9 +16,11 @@ module.exports = {
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
 				'public/lib/fontawesome/css/font-awesome.css',
 				'public/lib/vertical-rhythm/vertical-rhythm.css',
-				'http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700'
+				'http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700',
+				'public/lib/prismjs//prism.css'
 			],
 			js: [
+				'./public/lib/jquery/dist/jquery.js',
 				'public/lib/angular/angular.js',
 				'public/lib/angular-resource/angular-resource.js', 
 				'public/lib/angular-cookies/angular-cookies.js', 
@@ -27,7 +29,8 @@ module.exports = {
 				'public/lib/angular-sanitize/angular-sanitize.js', 
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
-				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js'
+				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+				'public/lib/prismjs//prism.js'
 			]
 		},
 		css: [

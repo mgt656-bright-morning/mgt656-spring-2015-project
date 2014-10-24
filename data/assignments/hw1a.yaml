@@ -1,10 +1,75 @@
 ---
 title: Introduction to HTML and CSS
-due_with: intro-to-management-of-software-development
+subtitle: Dash Project 1
+issued_with: intro-to-management-of-software-development
+due_with: designing-and-design
+goal: >
+  In this assignment you will write HTML and CSS. We 
+  do not expect you to be able to write a website from
+  scratch afterward. Instead, you should be able to 
+  look at the a piece of HTML or CSS and understand
+  roughly what it does.
 videos:
   - title: Getting started with Dash
+    description: >
+      This screencast shows how to sign up for Dash
+      and get started on the first project.
     time: 5m
-    youtube_id: lWIX5c0t8_E
+    youtube_key: lWIX5c0t8_E
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+### Background
+
+Every website you look at with your browser is written in [Hypertext
+Markup Language: HTML](http://en.wikipedia.org/wiki/HTML).
+(The only exception is when you are viewing
+other “content types” like images, PDFs, movies, etc. Also, there
+are a few different varieties of HTML. The most modern is HTML5.)
+HTML consists of pairs of tags surrounding some content, like
+
+```markup
+<p>Mary had a little lamb</p>
+```
+
+In that example, `<p>` is the
+paragraph tag and `</p>` shows where it ends.
+
+To make web pages display that paragraph in a special font, web
+developers use Cascading Style Sheets: CSS. Where as HTML tells the
+browser what content is on a website, CSS tells the browser how
+that content should be formatted: what color, size, position,
+boldness, whatever. To make that paragraph bold, we could use a CSS
+rule like `p { font-weight: bold; }`.
+
+```javascript
+var x = 5;
+console.log('woot');
+```
+
+JavaScript is used to turn a web page into a web app: a web page
+that is smart and has interactivity, animation, or computation. The
+JavaScript you include in a web app tells the browser how the app
+functions. In contrast, HTML and CSS tell the browser how the app
+looks.
+
+In this homework assignment, you will learn the basics of HTML,
+CSS, and a little bit of JavaScript. This is important because these
+three tools allow you to build applications on the web. And, the
+web is an omnipresent platform: every phone, every computer has a
+web browser. Why would we learn to make iOS apps, or Blackberry
+apps, or Android apps, or Windows apps? Instead, one option is that
+we can make a web app and it will serve customers across all these
+platforms.
+
+HTML and CSS are easy to learn. JavaScript can be harder. You will
+use the online Dash application, which was created by the Yale alums
+at General Assembly, to learn HTML, CSS, and a little bit of
+JavaScript. You will not be an expert after completing this assignment.
+You will know enough to start working on the class project with
+your team.
+
+
+### Actions and deliverables
+
+1. Open an account on GeneralAssembly's [Dash](https://dash.generalassemb.ly)
+2. 

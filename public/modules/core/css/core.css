@@ -70,4 +70,11 @@ ul.media-list{
 section.login{
 	text-align: center;
 }
+/* END - 401 page style */
+
+/* BEGIN - assignment */
+section.hw-submit{
+	vertical-align: middle;
+}
+/* END - assignment */
 
