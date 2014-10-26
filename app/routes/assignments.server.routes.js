@@ -7,5 +7,6 @@ module.exports = function(app) {
   app.route('/assignments/:slug')
     .get(assignmentControllers.assignmentDetail);
   app.route('/assignments/:slug/submit')
-    .get(users.requiresLogin, assignmentControllers.submitAssignment);
+    .get(users.requiresLogin, assignmentControllers.submitAssignment)
+    .post(users.requiresLogin, assignmentControllers.submitAssignment);
 };

@@ -5,7 +5,7 @@
     Submit {{assignment.slug|upper}}:<br>{{assignment.title}}
     {%- if assignment.subtitle %}: <span>{{assignment.subtitle}}</span>{% endif %}
   </h1>
-  <form role="form">
+  <form role="form" method="POST" action="{{url}}">
   {% for field in assignment.submission.fields %}
     <div class="form-group">
       <label for="{{field.name}}">{{field.title}}</label>
