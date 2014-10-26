@@ -26,6 +26,7 @@ submission:
       textarea: true
       help: Paste in the code you wrote for Project 1 here.
       name: code
+      language: javascript
       rows: 20
 
 ---
