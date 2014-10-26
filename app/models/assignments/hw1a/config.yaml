@@ -18,10 +18,6 @@ videos:
     youtube_key: lWIX5c0t8_E
 submission:
   fields:
-    - title: Your Dash username
-      type: text
-      name: dashusername
-      placeholder: Your username goes here...
     - title: Dash Project 1 code
       textarea: true
       help: Paste in the code you wrote for Project 1 here.
