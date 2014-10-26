@@ -6,12 +6,11 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
 	_ = require('lodash'),
-	crypto = require('crypto');
+	crypto = require('crypto'),
+	path = require('path'),
+	assignments = require('./assignment.server.model.js');
 
-/**
- * User Schema
- */
-var UserSchema = new Schema({
+var schemaMap = {
 	netid: {
 		type: String,
 		unique: 'testing error message',
@@ -48,11 +47,19 @@ var UserSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	// Mixed type field that will hold the submissions
-	// for various assignments.
-	// http://mongoosejs.com/docs/schematypes.html#mixed
-	assignments: {},
-});
+};
+
+schemaMap.assignments = {};
+for (var i = assignments.all.length - 1; i >= 0; i--) {
+	schemaMap.assignments[assignments.all[i].slug] = assignments.all[i].schemaMap;
+}
+console.log(schemaMap.assignments);
+
+
+/**
+ * User Schema
+ */
+var UserSchema = new Schema(schemaMap);
 
 /**
  * Hook a pre save method to hash the password
