@@ -3,6 +3,7 @@ module.exports = exports = {all: []};
 var glob = require('glob');
 var yamlFront = require('yaml-front-matter');
 var _ = require('lodash');
+var path = require('path');
 var assignments = require('./assignment.server.model.js');
 
 function slugify(text) {
@@ -50,7 +51,7 @@ function addDueDatesToAssignments(){
 
 // Find all the lectures from their YAML files
 //
-glob('data/lectures/*.yaml', function(err, files){
+glob.sync(path.join(__dirname, 'lectures', '*.yaml'), function(err, files){
   for (var i = files.length - 1; i >= 0; i--) {
     exports.all.push(makeLecture(files[i]));
   }
