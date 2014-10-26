@@ -11,7 +11,15 @@ function makeAssignment (filePath) {
   var assignment = yamlFront.loadFront(filePath, 'content');
   assignment.dirname = path.dirname(filePath);
   assignment.slug = path.basename(assignment.dirname);
-  assignment.schemaMap = require(path.join(assignment.dirname, 'model.js')).schemaObject;
+  assignment.schemaObject = require(path.join(assignment.dirname, 'model.js')).schemaObject;
+  assignment.fieldsInForm = [];
+  var schemaKeys = _.keys(assignment.schemaObject);
+  for (var i = schemaKeys.length - 1; i >= 0; i--) {
+    var key = schemaKeys[i];
+    if (assignment.schemaObject[key].inForm === true) {
+      assignment.fieldsInForm.push(key);
+    }
+  }
   return assignment;
 }
 

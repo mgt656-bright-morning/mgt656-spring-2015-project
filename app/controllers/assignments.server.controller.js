@@ -25,16 +25,23 @@ function assignmentDetail (req, res) {
 }
 
 function submitAssignment (req, res) {
+  var assignment = res.locals.assignment;
   if (req.method === 'POST') {
-    console.log('post');
+    for (var i = assignment.fieldsInForm.length - 1; i >= 0; i--) {
+      var f = assignment.fieldsInForm[i];
+      var value = req.body[f];
+      if (_.isEmpty(value) === false) {
+        res.locals.user.assignments[assignment.slug][f] = value;
+      }
+    }
+    return res.locals.user.save(function(err){
+      res.send(res.locals.user);
+    });
   }else if (req.method === 'GET'){
-    console.log('get');
+    return res.render('submit-assignment', {
+      assignment: assignment
+    });
   }
-  console.log('%%%%%%%%%%%%%%%%%%%');
-  console.log(res.locals.assignment.submission.fields);
-  res.render('submit-assignment', {
-    assignment: res.locals.assignment
-  });
 }
 
 module.exports = exports = {

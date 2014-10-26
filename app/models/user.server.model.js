@@ -51,9 +51,8 @@ var schemaMap = {
 
 schemaMap.assignments = {};
 for (var i = assignments.all.length - 1; i >= 0; i--) {
-	schemaMap.assignments[assignments.all[i].slug] = assignments.all[i].schemaMap;
+	schemaMap.assignments[assignments.all[i].slug] = assignments.all[i].schemaObject;
 }
-console.log(schemaMap.assignments);
 
 
 /**

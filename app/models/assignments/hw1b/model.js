@@ -6,5 +6,5 @@ var _ = require('lodash');
 module.exports = exports = {};
 
 exports.schemaObject = _.assign(defaultSchema, {
-  code: {type: String, match: /^.{1,5000}/},
+  code: {type: String, match: /^.{1,5000}/, inForm: true},
 });
