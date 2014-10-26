@@ -47,7 +47,11 @@ var UserSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
-	}
+	},
+	// Mixed type field that will hold the submissions
+	// for various assignments.
+	// http://mongoosejs.com/docs/schematypes.html#mixed
+	assignments: {},
 });
 
 /**

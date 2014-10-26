@@ -1,0 +1,33 @@
+{% extends "layout.server.view.html" %}
+
+{% block content %}
+  <h1>
+    Submit {{assignment.slug|upper}}:<br>{{assignment.title}}
+    {%- if assignment.subtitle %}: <span>{{assignment.subtitle}}</span>{% endif %}
+  </h1>
+  <form role="form">
+  {% for field in assignment.submission.fields %}
+    <div class="form-group">
+      <label for="{{field.name}}">{{field.title}}</label>
+      <{{"textarea" if field.textarea else "input"}}
+        type="{{field.type}}"
+        class="form-control"
+        name="{{field.name}}"
+        {%- if field.type %} type="{{field.type}}"{% endif %}
+        {%- if field.id %} id="{{field.id}}"{% endif %}
+        {%- if field.placeholder %} placeholder="{{field.placeholder}}"{% endif %}
+        {%- if field.rows %} rows="{{field.rows}}"{% endif %}
+        >
+      {%- if field.textarea %}</textarea>{% endif %}
+      {% if field.help %}
+        <p class="help-block">
+          {{field.help}}
+        </p>
+      {% endif %}
+    </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-success btn-lg">
+    <i class="fa fa-check-square-o fa-lg fa-2x"></i> Submit {{assignment.slug|upper}}
+  </button>
+</form>
+{% endblock %}

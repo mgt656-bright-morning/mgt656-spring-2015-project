@@ -1,6 +1,11 @@
 'use strict';
 var assignmentControllers = require('../../app/controllers/assignments.server.controller.js');
+var users = require('../../app/controllers/users');
 
 module.exports = function(app) {
-  app.route('/assignments/:slug').get(assignmentControllers.assignmentDetail);
+  app.use('/assignments/:slug', assignmentControllers.getAssignmentFromParams);
+  app.route('/assignments/:slug')
+    .get(assignmentControllers.assignmentDetail);
+  app.route('/assignments/:slug/submit')
+    .get(users.requiresLogin, assignmentControllers.submitAssignment);
 };

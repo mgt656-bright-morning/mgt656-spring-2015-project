@@ -21,3 +21,7 @@ glob('data/assignments/*.yaml', function(err, files){
   }
 });
 
+exports.findBySlug = function (slug) {
+  return _.find(exports.all, {slug: slug});
+};
+
