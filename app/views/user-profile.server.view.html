@@ -1,0 +1,38 @@
+{% extends "layout.server.view.html" %}
+
+{% block content %}
+  <h1>Your profile</h1>
+
+  <h2>Your details</h2>
+  <dl>
+    <dt>Netid:</dt>
+    <dd>{{user.netid}}</dd>
+    <dt>First name:</dt>
+    <dd>{% if user.firstName %}{{user.firstName}}{% else %}<i>None</i>{% endif %}</dd>
+    <dt>Last name:</dt>
+    <dd>{% if user.lastName %}{{user.lastName}}{% else %}<i>None</i>{% endif %}</dd>
+  </dl>
+
+  <h2>Your assignments</h2>
+  <dl>
+
+  {% for assignment in assignments.all %}
+    <dt>{{assignment.slug|upper}} &mdash; {{assignment.title}}: {{assignment.subtitle}}</dt>
+    <dd>
+    <ul>
+      <ul>
+      {% if user.assignments[assignment.slug].isSubmitted %}
+        <li>You have <i>not</i> yet submitted this assignment.</li>
+        <li><a href="/assignments/{{assignment.slug}}/submit">Submit now</a></li>
+      {% else %}
+        <li>You submitted this on {{user.assignments[assignment.slug].dateSubmitted}}!</li>
+        <li><a href="/assignments/{{assignment.slug}}/submission">
+          View your submission.</li>
+        </a>
+      {% endif %}
+    </ul>
+  </dd>
+  {% endfor %}
+  </dl>
+
+{% endblock %}

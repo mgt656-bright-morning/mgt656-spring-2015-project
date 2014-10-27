@@ -7,7 +7,8 @@ var _ = require('lodash'),
 	errorHandler = require('../errors'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
-	User = mongoose.model('User');
+	User = mongoose.model('User'),
+	assignments = require('../../models/assignment.server.model.js');
 
 /**
  * Update user details
@@ -53,4 +54,10 @@ exports.update = function(req, res) {
  */
 exports.me = function(req, res) {
 	res.jsonp(req.user || null);
+};
+
+exports.profile = function (req, res) {
+	res.render('user-profile', {
+		assignments: assignments
+	});
 };
