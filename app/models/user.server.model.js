@@ -1,4 +1,5 @@
 'use strict';
+var _ = require('lodash');
 
 /**
  * Module dependencies.
@@ -90,6 +91,20 @@ UserSchema.methods.authenticate = function(password) {
 	// return this.password === this.hashPassword(password);
 	return true;
 };
+
+UserSchema
+.virtual('fullName')
+.get(function () {
+  return this.name.first + ' ' + this.name.last;
+});
+UserSchema
+.virtual('bestName')
+.get(function () {
+	if (_.all([this.firstName, this.lastName])) {
+		return this.fullName;
+	}
+	return this.netid;
+});
 
 /**
 * Create the admin users
