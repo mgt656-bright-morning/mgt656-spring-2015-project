@@ -1,0 +1,15 @@
+{% extends "layout.server.view.html" %}
+
+{% block content %}
+  <h1>
+    Your submission for {{assignment.slug|upper}}:<br>{{assignment.title}}
+    {%- if assignment.subtitle %}: <span>{{assignment.subtitle}}</span>{% endif %}
+  </h1>
+  {% for fieldName in assignment.formFields %}
+    {% set field = assignment.schemaObject[fieldName].form %}
+    <h4>{{field.title}}</h4>
+    <pre>{%- if field.codeLanguage -%}<code class="language-{{field.codeLanguage}}">{% endif -%}{{user.assignments[assignment.slug][field.name]}}
+      {%- if field.codeLanguage %}</code>{% endif -%}
+    </pre>
+  {% endfor %}
+{% endblock %}

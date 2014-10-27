@@ -9,4 +9,6 @@ module.exports = function(app) {
   app.route('/assignments/:slug/submit')
     .get(users.requiresLogin, assignmentControllers.submitAssignment)
     .post(users.requiresLogin, assignmentControllers.submitAssignment);
+  app.route('/assignments/:slug/submission')
+    .get(users.requiresLogin, assignmentControllers.viewSubmittedAssignment);
 };

@@ -18,10 +18,13 @@ function getAssignmentFromParams (req, res, next) {
 }
 
 function assignmentDetail (req, res) {
-
   return res.render('assignment', {
     assignment: res.locals.assignment,
   });
+}
+
+function viewSubmittedAssignment (req, res) {
+  return res.render('assignment-submission');
 }
 
 function submitAssignment (req, res) {
@@ -35,7 +38,7 @@ function submitAssignment (req, res) {
       }
     }
     return res.locals.user.save(function(err){
-      res.send(res.locals.user);
+      res.redirect('/assignments/' + assignment.slug + '/submission');
     });
   }else if (req.method === 'GET'){
     return res.render('submit-assignment', {
@@ -47,5 +50,6 @@ function submitAssignment (req, res) {
 module.exports = exports = {
   assignmentDetail: assignmentDetail,
   getAssignmentFromParams: getAssignmentFromParams,
-  submitAssignment: submitAssignment
+  submitAssignment: submitAssignment,
+  viewSubmittedAssignment: viewSubmittedAssignment
 };
