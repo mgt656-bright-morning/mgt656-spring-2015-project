@@ -11,11 +11,17 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<!-- Semantic META -->
+	{% if keywords %}
 	<meta name="keywords" content="{{keywords}}">
+	{% endif %}
+	{% if description %}
 	<meta name="description" content="{{description}}">
+	{% endif %}
 
+	{% if facebookAppId %}
 	<!-- Facebook META -->
 	<meta property="fb:app_id" content="{{facebookAppId}}">
+	{% endif %}
 	<meta property="og:site_name" content="{{title}}">
 	<meta property="og:title" content="{{title}}">
 	<meta property="og:description" content="{{description}}">
@@ -41,12 +47,15 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
+	{#
 	{% if user %}
 		<!--Embedding The User Object-->
 		<script type="text/javascript">
-			var user = {{ user | json | safe }};
+			// var user = {{ user | json  }};
 		</script>		
 	{% endif %}
+	#}
+
 
 </head>
 
