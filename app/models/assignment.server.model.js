@@ -11,15 +11,12 @@ function makeAssignment (filePath) {
   var assignment = yamlFront.loadFront(filePath, 'content');
   assignment.dirname = path.dirname(filePath);
   assignment.slug = path.basename(assignment.dirname);
-  assignment.schemaObject = require(path.join(assignment.dirname, 'model.js')).schemaObject;
-  assignment.fieldsInForm = [];
-  var schemaKeys = _.keys(assignment.schemaObject);
-  for (var i = schemaKeys.length - 1; i >= 0; i--) {
-    var key = schemaKeys[i];
-    if (assignment.schemaObject[key].inForm === true) {
-      assignment.fieldsInForm.push(key);
-    }
-  }
+
+  // Merge in the model definition
+  assignment = _.assign(
+    assignment,
+    require(path.join(assignment.dirname, 'model.js'))
+  );
   return assignment;
 }
 

@@ -16,14 +16,6 @@ videos:
       and get started on the first project.
     time: 5m
     youtube_key: lWIX5c0t8_E
-submission:
-  fields:
-    - title: Dash Project 1 code
-      textarea: true
-      help: Paste in the code you wrote for Project 1 here.
-      name: code
-      language: javascript
-      rows: 20
 
 ---
 

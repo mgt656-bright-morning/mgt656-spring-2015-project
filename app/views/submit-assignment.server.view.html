@@ -6,7 +6,8 @@
     {%- if assignment.subtitle %}: <span>{{assignment.subtitle}}</span>{% endif %}
   </h1>
   <form role="form" method="POST" action="{{url}}">
-  {% for field in assignment.submission.fields %}
+  {% for fieldName in assignment.formFields %}
+    {% set field = assignment.schemaObject[fieldName].form %}
     <div class="form-group">
       <label for="{{field.name}}">{{field.title}}</label>
       <{{"textarea" if field.textarea else "input"}}

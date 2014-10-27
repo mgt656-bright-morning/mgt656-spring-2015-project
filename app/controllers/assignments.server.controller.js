@@ -27,8 +27,8 @@ function assignmentDetail (req, res) {
 function submitAssignment (req, res) {
   var assignment = res.locals.assignment;
   if (req.method === 'POST') {
-    for (var i = assignment.fieldsInForm.length - 1; i >= 0; i--) {
-      var f = assignment.fieldsInForm[i];
+    for (var i = assignment.formFields.length - 1; i >= 0; i--) {
+      var f = assignment.formFields[i];
       var value = req.body[f];
       if (_.isEmpty(value) === false) {
         res.locals.user.assignments[assignment.slug][f] = value;
