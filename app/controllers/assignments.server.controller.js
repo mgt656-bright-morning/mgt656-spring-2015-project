@@ -20,11 +20,14 @@ function getAssignmentFromParams (req, res, next) {
 function assignmentDetail (req, res) {
   return res.render('assignment', {
     assignment: res.locals.assignment,
+    title: res.locals.assignment.slug.toUpperCase() + ': ' + res.locals.assignment.title
   });
 }
 
 function viewSubmittedAssignment (req, res) {
-  return res.render('assignment-submission');
+  return res.render('assignment-submission', {
+    title: res.locals.assignment.slug.toUpperCase() + ' submission for ' + res.locals.user.bestName
+  });
 }
 
 function submitAssignment (req, res) {
@@ -42,7 +45,8 @@ function submitAssignment (req, res) {
     });
   }else if (req.method === 'GET'){
     return res.render('submit-assignment', {
-      assignment: assignment
+      assignment: assignment,
+      title: 'Submit ' + assignment.slug.toUpperCase() + ' for ' + res.locals.user.bestName
     });
   }
 }
