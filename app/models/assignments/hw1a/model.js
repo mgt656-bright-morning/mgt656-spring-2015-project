@@ -14,7 +14,7 @@ exports.schemaObject = _.assign(defaultSchema, {
       textarea: true, 
       help: 'Paste in the code you wrote for Project 1 here.', 
       name: 'code', 
-      language: 'javascript', 
+      codeLanguage: 'markup', 
       rows: 20
     }
   },
