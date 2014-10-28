@@ -21,14 +21,14 @@
     <dd>
     <ul>
       <ul>
-      {% if user.assignments[assignment.slug].isSubmitted %}
-        <li>You have <i>not</i> yet submitted this assignment.</li>
-        <li><a href="/assignments/{{assignment.slug}}/submit">Submit now</a></li>
-      {% else %}
+      {% if user.assignments[assignment.slug].wasSubmitted %}
         <li>You submitted this on {{user.assignments[assignment.slug].dateSubmitted}}!</li>
         <li><a href="/assignments/{{assignment.slug}}/submission">
           View your submission.</li>
         </a>
+      {% else %}
+        <li>You have <i>not</i> yet submitted this assignment.</li>
+        <li><a href="/assignments/{{assignment.slug}}/submit">Submit now</a></li>
       {% endif %}
     </ul>
   </dd>

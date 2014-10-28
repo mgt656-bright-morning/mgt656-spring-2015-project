@@ -41,6 +41,7 @@ function submitAssignment (req, res) {
       }
     }
     res.locals.user.assignments[assignment.slug].dateSubmitted = new Date();
+    res.locals.user.assignments[assignment.slug].wasSubmitted = true;
     return res.locals.user.save(function(err){
       res.redirect('/assignments/' + assignment.slug + '/submission');
     });
