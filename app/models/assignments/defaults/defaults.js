@@ -6,7 +6,7 @@ var _ = require('lodash');
 module.exports = exports = {};
 
 exports.schemaObject = {
-  dateSubmitted: { type: Date, default: Date.now},
+  dateSubmitted: { type: Date },
   points: {type: Number, min: 0, max: 100},
   wasSubmitted: {type: Boolean, default: false}
 };
