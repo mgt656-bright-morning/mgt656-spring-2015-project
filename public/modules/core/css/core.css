@@ -79,5 +79,11 @@ section.login{
 section.hw-submit{
 	vertical-align: middle;
 }
+a.youtube{
+	border: solid 1px #ccc;
+}
+img.youtube{
+	border: solid 5px #fff;
+}
 /* END - assignment */
 

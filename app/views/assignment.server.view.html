@@ -22,8 +22,8 @@
     <ul class="media-list">
     {% for video in assignment.videos %}
       <li class="media">
-        <a class="pull-left" href="https://www.youtube.com/watch?v={{video.youtube_key}}">
-          <img class="media-object" alt="{{video.title}}" src="http://img.youtube.com/vi/{{video.youtube_key}}/1.jpg">
+        <a class="pull-left youtube" href="https://www.youtube.com/watch?v={{video.youtube_key}}">
+          <img class="media-object youtube" alt="{{video.title}}" src="http://img.youtube.com/vi/{{video.youtube_key}}/1.jpg">
         </a>
         <div class="media-body">
           <h4 class="media-heading"><a href="https://www.youtube.com/watch?v={{video.youtube_key}}">{{video.title}}</a></h4>
