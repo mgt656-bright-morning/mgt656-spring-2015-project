@@ -1,8 +1,8 @@
 ---
 title: Introduction to Server Side JavaScript and Node
 subtitle: Example project on Cloud9
-issued_with: intro-to-server-side-app-dev-and-node
-due_with: project-and-feature-prioritization
+issued_with: project-and-feature-prioritization
+due_with: collaboration-and-version-control
 goal: >
   In this assignment you will run and alter a basic
   Node application. You will run this app on Cloud9
@@ -19,7 +19,10 @@ videos:
     youtube_key: rB93YRQNL9E
   - title: How to sign up for Cloud9
     description: >
-      This screencast shows how to sign up for Cloud9; the major features of Cloud9; and how to start the built in demonstration project.
+      This screencast first shows how to sign up for Cloud9 using your 
+      GitHub credentials. Then we show you a few features of Cloud9
+      and how to start the built-in demon project. (You do
+      not need to run the built-in demo project for the homework.)
     time: 7:33m
     youtube_key: haiiY4yiiUk
   - title: "HW2 walkthrough: creating and launching the demo app"
@@ -37,9 +40,18 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 ### Actions and deliverables
 
 1. Create an account for youself on [GitHub](http://www.github.com)
-2. Create an account for yourself on [Cloud9](http://www.c9.io)
+2. Create an account for yourself on [Cloud9](http://www.c9.io) using
+    GitHub to log in. That way your Cloud9 and GitHub accounts will
+    be automatically linked and you will have access to your GitHub
+    respositories on Cloud9. If you choose to register for Cloud9 
+    using an email/password combination instead, you will need to 
+    manually link your GitHub and Cloud9 accounts. You can find
+    documentation on how to do that on the Cloud9 website.
 3. Clone the [mgt656-hw2](https://github.com/kljensen/mgt656-hw2) repository
    to your GitHub account.
 4. Create a new workspace on Cloud9 and use your GitHub clone of 
     the mgt656-hw2 project as the "Source URL".
-5. 
+5. Alter the application so that it responds to requests at the
+   URL path `/netid`. The response at `/netid` should be your Yale
+   netid, e.g. `kfj23`. 
+6. Make a git commit with your changes and push them to GitHub.
