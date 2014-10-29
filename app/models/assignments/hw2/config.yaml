@@ -1,0 +1,45 @@
+---
+title: Introduction to Server Side JavaScript and Node
+subtitle: Example project on Cloud9
+issued_with: intro-to-server-side-app-dev-and-node
+due_with: project-and-feature-prioritization
+goal: >
+  In this assignment you will run and alter a basic
+  Node application. You will run this app on Cloud9
+  and keep the source code on GitHub. After completing
+  this assignment, you should understand the roles
+  of each of these services and technologies.
+videos:
+  - title: Signing up for GitHub
+    description: >
+      This screencast shows how to sign up for GitHub
+      and explains a few of the more common aspects of
+      the GitHub website.
+    time: 6:30m
+    youtube_key: rB93YRQNL9E
+  - title: How to sign up for Cloud9
+    description: >
+      This screencast shows how to sign up for Cloud9; the major features of Cloud9; and how to start the built in demonstration project.
+    time: 7:33m
+    youtube_key: haiiY4yiiUk
+  - title: "HW2 walkthrough: creating and launching the demo app"
+    description: >
+      This screencast shows how to clone the hw2 repository; check out that repository on Cloud9; run the demo node application; and, alter that app.
+    youtube_key: VZP9ZPCRMKg
+    time: 10:17m
+
+---
+
+### Background
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+### Actions and deliverables
+
+1. Create an account for youself on [GitHub](http://www.github.com)
+2. Create an account for yourself on [Cloud9](http://www.c9.io)
+3. Clone the [mgt656-hw2](https://github.com/kljensen/mgt656-hw2) repository
+   to your GitHub account.
+4. Create a new workspace on Cloud9 and use your GitHub clone of 
+    the mgt656-hw2 project as the "Source URL".
+5. 
