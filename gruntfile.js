@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 		clientJS: ['public/js/*.js', 'public/modules/**/*.js'],
 		clientCSS: ['public/modules/**/*.css'],
 		mochaTests: ['app/tests/**/*.js'],
-		dataFiles: ['data/**/*.yaml']
+		dataFiles: ['app/models/**/*{.yaml,.yml}']
 	};
 
 	// Project Configuration
@@ -31,6 +31,12 @@ module.exports = function(grunt) {
 			},
 			clientViews: {
 				files: watchFiles.clientViews,
+				options: {
+					livereload: true,
+				}
+			},
+			dataFiles: {
+				files: watchFiles.dataFiles,
 				options: {
 					livereload: true,
 				}
@@ -88,8 +94,8 @@ module.exports = function(grunt) {
 				script: 'server.js',
 				options: {
 					nodeArgs: ['--debug'],
-					ext: 'js,html',
-					watch: watchFiles.serverViews.concat(watchFiles.serverJS)
+					ext: 'js,html,yaml',
+					watch: watchFiles.serverViews.concat(watchFiles.serverJS, watchFiles.dataFiles)
 				}
 			}
 		},
