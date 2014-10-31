@@ -10,7 +10,7 @@
       {%- if lecture.subtitle %}: <span>{{lecture.subtitle}}</span>{% endif %}
     </h1>
     <p>
-      {{lecture.content}}
+      {{lecture.content | markdown | safe }}
     </p>
   </section>
   <section class="row">
