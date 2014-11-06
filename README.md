@@ -46,7 +46,7 @@ From scratch with MacOS here is Kyle's quick and dirty guide to setup dev enviro
 install Homebrew by typing:
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-``
+```
 
 brew install node
 brew install mongodb
@@ -72,7 +72,7 @@ Then:
 
 ./node_modules/.bin/bower install
 
-./node_modules/.bin/grunt
+
 
 
 
@@ -84,6 +84,8 @@ After the install process is over, you'll be able to run your application using 
 
 ```
 $ grunt
+
+[or perhaps ./node_modules/.bin/grunt]
 ```
 
 Your application should run on the 3000 port so in your browser just go to [http://localhost:3000](http://localhost:3000)
