@@ -35,9 +35,27 @@ You can also use Git to directly clone this repository:
 ```
 $ git clone git@git.yale.edu:mgt656/mgt656-website.git
 ```
+
 This will clone the latest version of the MGT-656 repository to a **mgt656-website** folder.
 
+Note: As the repo is set to private on Yale's github account, it is important to use your NetID/password rather than your Github login credentials.
+
+
+From scratch with MacOS here is Kyle's quick and dirty guide to setup dev environment:
+
+install Homebrew by typing:
+```
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+``
+
+brew install node
+brew install mongodb
+
+Then you should be able to checkout code, CD into the directory containing code
+
+
 The next thing you should do is install the Node.js dependencies. The code comes with a package.json file that contains the list of modules you need to start the application, to learn more about the modules installed visit the NPM & Package.json section.
+
 
 To install Node.js dependencies you're going to use npm again, in the application folder run this in the command-line:
 
@@ -49,6 +67,17 @@ This command does a few things:
 * First it will install the dependencies needed for the application to run.
 * If you're running in a development environment, it will then also install development dependencies needed for testing and running your application.
 * Finally, when the install process is over, npm will initiate a bower install command to install all the front-end modules needed for the application
+
+Then:
+
+./node_modules/.bin/bower install
+
+./node_modules/.bin/grunt
+
+
+
+
+
 
 ## Running Your Application
 After the install process is over, you'll be able to run your application using Grunt, just run grunt default task:
