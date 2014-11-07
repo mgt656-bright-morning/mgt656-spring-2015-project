@@ -17,7 +17,7 @@ module.exports = {
 				'public/lib/fontawesome/css/font-awesome.css',
 				'public/lib/vertical-rhythm/vertical-rhythm.css',
 				'http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700',
-				'public/lib/prismjs//prism.css'
+				'public/lib/prismjs/prism.css'
 			],
 			js: [
 				'./public/lib/jquery/dist/jquery.js',
@@ -30,7 +30,7 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-				'public/lib/prismjs//prism.js'
+				'public/lib/prismjs/prism.js'
 			]
 		},
 		css: [
