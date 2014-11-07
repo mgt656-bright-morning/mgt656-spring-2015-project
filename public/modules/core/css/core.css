@@ -17,6 +17,9 @@ body{
     border-color:#78FA89;
 }
 
+.navbar {
+    margin-bottom: 0;
+}
 
 /* BEGIN - Index page */
 /*div.class-glance{

@@ -60,6 +60,7 @@
 </head>
 
 <body>
+	{% include "fragments/navbar.server.view.html" %}
 	<section class="content">
 		<section class="container {% block extra_container_classes %}{% endblock %}">
 			{% block content %}{% endblock %}
