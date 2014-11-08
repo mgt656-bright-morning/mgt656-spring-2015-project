@@ -18,7 +18,8 @@ var express = require('express'),
 	flash = require('connect-flash'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
-	path = require('path');
+	path = require('path'),
+	lectures = require('../app/models/lecture.server.model.js');
 
 module.exports = function(db) {
 	// Initialize express app
@@ -36,6 +37,7 @@ module.exports = function(db) {
 	app.locals.facebookAppId = config.facebook.clientID;
 	app.locals.jsFiles = config.getJavaScriptAssets();
 	app.locals.cssFiles = config.getCSSAssets();
+	app.locals.lectures = lectures.all;
 
 	// Passing the request url to environment locals
 	app.use(function(req, res, next) {
