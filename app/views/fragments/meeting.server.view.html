@@ -2,9 +2,9 @@
     <div class="pull-left date-container">
       <div class="date">
         <p>
-          <strong>{{lecture.date|strftime('%b')}}</strong>
-          {{lecture.date|strftime('%d')}}
-          <span>{{lecture.date|strftime('%a')}}</span>
+          <strong>{{lecture.date|formatDate('%b')}}</strong>
+          {{lecture.date|formatDate('%d')}}
+          <span>{{lecture.date|formatDate('%a')}}</span>
         </p>
       </div>
     </div>

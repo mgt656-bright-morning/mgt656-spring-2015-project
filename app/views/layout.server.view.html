@@ -59,7 +59,7 @@
 
 </head>
 
-<body>
+<body class="{% block bodyClasses %}{% endblock %}">
 	{% include "fragments/navbar.server.view.html" %}
 
 	{% block topMatter %}

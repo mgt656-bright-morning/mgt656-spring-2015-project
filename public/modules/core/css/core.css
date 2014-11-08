@@ -139,6 +139,9 @@ section.login{
 /* END - 401 page style */
 
 /* BEGIN - assignment */
+body.assignment h3{
+	margin-top: 20px;
+}
 section.hw-submit{
 	vertical-align: middle;
 }
@@ -147,6 +150,29 @@ a.youtube{
 }
 img.youtube{
 	border: solid 5px #fff;
+}
+section#assignment-header{
+	text-align: center
+}
+p.assignment-slug{
+	font-size:2rem;
+	font-weight: 900;
+}
+h1.assignment-title{
+	font-weight:100;
+}
+p.assignment-subtitle{
+	font-size:3rem;
+	/*font-weight: 700;*/
+	color: #aaa;
+}
+span.assignment-due-date{
+	font-size: 2rem;
+	font-weight: 400;
+}
+section.submit{
+	text-align: center;
+	margin-top: 40px;
 }
 /* END - assignment */
 

@@ -24,9 +24,23 @@
             {% for lecture in lectures %}
               <li>
                 <a href="/lectures/{{lecture.slug}}">
-                  {{lecture.date|strftime('%b %d')}}
+                  {{lecture.date|formatDate('MMM DD')}}
                   &ndash;
                   {{lecture.title}}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Assignments Due <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            {% for assignment in assignments|sort(attribute='due_date') %}
+              <li>
+                <a href="/assignments/{{assignment.slug}}">
+                  {{assignment.due_date|formatDate('MMM DD')}}
+                  &ndash;
+                  {{assignment.slug|upper}}
                 </a>
               </li>
             {% endfor %}

@@ -2,7 +2,7 @@
 
 // Set up nunjucks templating
 var nunjucks = require('nunjucks');
-var strftime = require('strftime');
+var moment = require('moment');
 var marked = require('marked');
 
 marked.setOptions({
@@ -37,8 +37,8 @@ module.exports = function(app){
   env.addFilter('json', function(obj) {
     return JSON.stringify(obj);
   });
-  env.addFilter('strftime', function(obj, format) {
-    return strftime(format, obj);
+  env.addFilter('formatDate', function(obj, format) {
+    return moment(obj).format(format);
   });
   env.addFilter('markdown', function(text) {
     return marked(text);

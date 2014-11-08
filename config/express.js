@@ -21,6 +21,7 @@ var express = require('express'),
 	path = require('path'),
 	casConfig = require('./cas.config.js'),
 	querystring = require('querystring'),
+	assignments = require('../app/models/assignment.server.model.js'),
 	lectures = require('../app/models/lecture.server.model.js');
 
 module.exports = function(db) {
@@ -40,6 +41,7 @@ module.exports = function(db) {
 	app.locals.jsFiles = config.getJavaScriptAssets();
 	app.locals.cssFiles = config.getCSSAssets();
 	app.locals.lectures = lectures.all;
+	app.locals.assignments = assignments.all;
 
 	// Passing the request url to environment locals
 	app.use(function(req, res, next) {

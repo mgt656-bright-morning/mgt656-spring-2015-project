@@ -1,16 +1,38 @@
 {% extends 'layout.server.view.html' %}
 
+{% block bodyClasses %}assignment{% endblock %}
+
+
 {% block content %}
-  <section class="row">
-    <h1>
-      {{assignment.slug|upper}}: {{assignment.title}}
-      {%- if assignment.subtitle %}: <span>{{assignment.subtitle}}</span>{% endif %}
-    </h1>
-    <p>
-      <b>Due:</b> {{assignment.due_date}}
+  <section class="row" id="assignment-header">
+    <p class="assignment-slug">
+      {{assignment.slug|upper}}:
     </p>
+    <h1 class="assignment-title">
+      {{assignment.title}}
+      {%- if assignment.subtitle %}:{% endif %}
+    </h1>
+    {%- if assignment.subtitle %}
+      <p class="assignment-subtitle">
+        {{assignment.subtitle}}
+      </p>
+    {% endif %}
+  </section>
+
+  <section class="row">
+    <h3>
+      Due
+    </h3>
     <p>
-      <b>Goal:</b> {{assignment.goal}}
+      The assignment must be submitted before 
+      class on {{assignment.due_date|formatDate('dddd, MMMM Do')}} at {{assignment.due_date|formatDate('h:mm a')}}.
+      See below for submission guidelines.
+    </p>
+    <h3>
+      Goal
+    </h3>
+    <p>
+      {{assignment.goal}}
     </p>
     <p>
       {{assignment.content | markdown | safe}}
@@ -19,9 +41,8 @@
   {% if assignment.videos %}
   <section class="row">
     <h3>Video tutorials</h3>
-    <ul class="media-list">
     {% for video in assignment.videos %}
-      <li class="media">
+      <div class="media col-md-6">
         <a class="pull-left youtube" href="https://www.youtube.com/watch?v={{video.youtube_key}}">
           <img class="media-object youtube" alt="{{video.title}}" src="http://img.youtube.com/vi/{{video.youtube_key}}/1.jpg">
         </a>
@@ -29,12 +50,11 @@
           <h4 class="media-heading"><a href="https://www.youtube.com/watch?v={{video.youtube_key}}">{{video.title}}</a></h4>
           {{ video.description }}
         </div>
-      </li>
+      </div>
     {% endfor %}
-    </ul>
   </section>
   {% endif %}
-  <section class="row">
+  <section class="row submit">
     <div class="col-md-12">
       <a class="btn btn-success btn-lg" href="/assignments/{{assignment.slug}}/submit">
         <i class="fa fa-check-square-o fa-lg fa-2x"></i> Submit {{assignment.slug|upper}}

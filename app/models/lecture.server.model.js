@@ -27,11 +27,13 @@ function makeLecture (filePath) {
 function sortByDate (a, b) {
   return a.date > b.date ? 1 : a.date < b.date ? -1 : 0;
 }
+function sortByDueDate (a, b) {
+  return a.due_date > b.due_date ? 1 : a.due_date < b.due_date ? -1 : 0;
+}
 
 function joinLecturesWithAssignments (lectures) {
   var assignmentsByLectureIssued = _.groupBy(assignments.all, 'issued_with');
   var assignmentsByLectureDue = _.groupBy(assignments.all, 'due_with');
-  console.log(assignmentsByLectureDue);
   for (var i = lectures.length - 1; i >= 0; i--) {
     var slug = lectures[i].slug;
     lectures[i].assignments_issued = assignmentsByLectureIssued[slug];
@@ -58,5 +60,6 @@ glob.sync(path.join(__dirname, 'lectures', '*.yaml'), function(err, files){
   exports.all.sort(sortByDate);
   exports.all = joinLecturesWithAssignments(exports.all);
   addDueDatesToAssignments();
+  assignments.all.sort(sortByDueDate);
 });
 
