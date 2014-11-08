@@ -19,6 +19,7 @@ var express = require('express'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
 	path = require('path'),
+	casConfig = require('./cas.config.js'),
 	lectures = require('../app/models/lecture.server.model.js');
 
 module.exports = function(db) {
@@ -108,6 +109,7 @@ module.exports = function(db) {
 	// Passing the user info to environment locals
 	app.use(function(req, res, next) {
 		res.locals.user = req.user || null;
+		res.locals.loginUrl = casConfig.getLoginUrl(req);
 		next();
 	});
 
