@@ -20,6 +20,7 @@ var express = require('express'),
 	consolidate = require('consolidate'),
 	path = require('path'),
 	casConfig = require('./cas.config.js'),
+	querystring = require('querystring'),
 	lectures = require('../app/models/lecture.server.model.js');
 
 module.exports = function(db) {
@@ -110,7 +111,13 @@ module.exports = function(db) {
 	app.use(function(req, res, next) {
 		res.locals.user = req.user || null;
 		res.locals.loginUrl = casConfig.getLoginUrl(req);
+		res.locals.logoutUrl = '/logout' + '?' + querystring.stringify({next: req.url});
 		next();
+	});
+	app.get('/logout', function(req, res) {
+		req.logout();
+		var next = req.query.next || '/';
+		res.redirect(next);
 	});
 
 	// connect flash for flash messages
