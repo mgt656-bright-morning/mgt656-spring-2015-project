@@ -142,6 +142,9 @@ section.login{
 body.assignment h3{
 	margin-top: 20px;
 }
+body.assignment h1{
+	margin-top: 0;
+}
 section.hw-submit{
 	vertical-align: middle;
 }
@@ -162,9 +165,9 @@ h1.assignment-title{
 	font-weight:100;
 }
 p.assignment-subtitle{
-	font-size:3rem;
+	font-size:2rem;
 	/*font-weight: 700;*/
-	color: #aaa;
+	/*color: #aaa;*/
 }
 span.assignment-due-date{
 	font-size: 2rem;

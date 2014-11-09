@@ -10,13 +10,13 @@
     </p>
     <h1 class="assignment-title">
       {{assignment.title}}
-      {%- if assignment.subtitle %}:{% endif %}
     </h1>
     {%- if assignment.subtitle %}
       <p class="assignment-subtitle">
-        {{assignment.subtitle}}
+        ({{assignment.subtitle}})
       </p>
     {% endif %}
+    <hr>
   </section>
 
   <section class="row">
@@ -38,9 +38,18 @@
       {{assignment.content | markdown | safe}}
     </p>
   </section>
+  <section class="row submit">
+    <div class="col-md-12">
+      <a class="btn btn-success btn-lg" href="/assignments/{{assignment.slug}}/submit">
+        <i class="fa fa-check-square-o fa-lg"></i>
+        Submit {{assignment.slug|upper}}
+      </a>
+    </div>
+  </section>
+  <hr>
   {% if assignment.videos %}
   <section class="row">
-    <h3>Video tutorials</h3>
+    <h3>Video tutorials for {{assignment.slug|upper}}</h3>
     {% for video in assignment.videos %}
       <div class="media col-md-6">
         <a class="pull-left youtube" href="https://www.youtube.com/watch?v={{video.youtube_key}}">
@@ -54,11 +63,4 @@
     {% endfor %}
   </section>
   {% endif %}
-  <section class="row submit">
-    <div class="col-md-12">
-      <a class="btn btn-success btn-lg" href="/assignments/{{assignment.slug}}/submit">
-        <i class="fa fa-check-square-o fa-lg fa-2x"></i> Submit {{assignment.slug|upper}}
-      </a>
-    </div>
-  </section>
 {% endblock %}
