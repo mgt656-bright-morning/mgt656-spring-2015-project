@@ -11,8 +11,8 @@ exports.schemaObject = _.assign(defaultSchema, {
     type: String,
     match: /^.{1,5000}/,
     form: defaults.getCodeForm({
-      title: 'Dash Project 2 code', 
-      help: 'Paste in the code you wrote for Project 2 here.', 
+      title: 'Dash Project 1 code', 
+      help: 'Paste in the code you wrote for Project 1 here.', 
     })
   },
 });
