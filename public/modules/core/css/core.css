@@ -67,14 +67,9 @@ body{
 		background: url("/static/images/9131894934_56e6cdb24b_z.jpg") no-repeat center center; 
 	}
 }
-@media (min-width: 640px) and (max-width: 1600px) {
+@media (min-width: 640px) {
 	.jumbotron{
 		background: url("/static/images/9131894934_5e7c8d8654_h.jpg") no-repeat center center; 
-	}
-}
-@media (min-width: 1600px){
-	.jumbotron{
-		background: url("/static/images/9131894934_b682e53d5f_o.jpg") no-repeat center center; 
 	}
 }
 a.navbar-brand{
