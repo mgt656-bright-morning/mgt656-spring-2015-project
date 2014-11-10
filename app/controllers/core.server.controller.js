@@ -6,7 +6,10 @@ var lectures = require('../models/lecture.server.model.js');
  * Module dependencies.
  */
 exports.index = function(req, res) {
-	res.render('index', {lectures: lectures.all});
+  res.render('index');
+};
+exports.about = function(req, res) {
+	res.render('about');
 };
 
 // exports.schedule = function(req, res) {

@@ -4,6 +4,7 @@
 var nunjucks = require('nunjucks');
 var moment = require('moment');
 var marked = require('marked');
+var njmarkdown = require('nunjucks-markdown');
 
 marked.setOptions({
   langPrefix: 'language-'
@@ -34,6 +35,7 @@ module.exports = function(app){
         variableEnd: '}}',
       }
   });
+  njmarkdown.register(env);
   env.addFilter('json', function(obj) {
     return JSON.stringify(obj);
   });
