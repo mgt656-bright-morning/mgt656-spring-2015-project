@@ -56,20 +56,25 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-attachment: fixed;
+	background-repeat: no-repeat;
 }
 @media (max-width: 240px) {
 	.jumbotron{
 		background: url("/static/images/9131894934_56e6cdb24b_m.jpg") no-repeat center center; 
+		background-position: 50% 0px;
 	}
 }
 @media (min-width: 240px) and (max-width: 640px) {
 	.jumbotron{
 		background: url("/static/images/9131894934_56e6cdb24b_z.jpg") no-repeat center center; 
+		background-position: 50% -100px;
 	}
 }
 @media (min-width: 640px) {
 	.jumbotron{
 		background: url("/static/images/9131894934_5e7c8d8654_h.jpg") no-repeat center center; 
+		background-position: 50% -500px;
 	}
 }
 a.navbar-brand{

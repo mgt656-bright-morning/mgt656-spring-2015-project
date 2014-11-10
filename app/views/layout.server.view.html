@@ -83,6 +83,33 @@
 	<script type="text/javascript" src="http://localhost:35729/livereload.js"></script>
 
 	{% endif %}
+  <script type="text/javascript">
+	  $(document).ready(function(){
+	  	var elements = $('.parallax');
+	  	function getY (el) {
+		    var bp = el.css('background-position').split(' ');
+		    var y = parseFloat(bp[1]);
+		    return y;
+	  	}
+	  	elements.each(function(){
+	  		var dis = $(this);
+	  		dis.data('original-y', getY(dis));
+	  	});
+
+
+		  window.onscroll = function(){
+		  	elements.each(function(){
+		  		var dis = $(this);
+			    var scrolled = parseFloat($(window).scrollTop());
+  		    var bp = dis.css('background-position').split(' ');
+			    var newy = dis.data('original-y') + 0.5 * scrolled;
+			    $('.parallax').css('background-position', bp[0] + ' ' + newy + 'px');		  		
+		  	})
+		  };
+	  	
+	  });
+  </script>
+
 </body>
 
 </html>
