@@ -26,17 +26,17 @@ body{
 
 .jumbotron h1{
 	display: block;
-	font-size: 5rem;
+	font-size: 3rem;
 	color: #000;
 	font-weight: 100;
-	line-height: 6rem;
+	line-height: 3rem;
 }
 
 .jumbotron h1 span{
 	display: block;
 	float: left;
 	clear: left;
-	padding: 1rem 2rem;
+	padding: 1rem 1rem;
 	background-color: rgba(255, 255, 255, 0.9);
 	text-shadow: 1px 1px 4px rgba(255, 255, 255, 1);
 }
@@ -75,6 +75,13 @@ body{
 	.jumbotron{
 		background: url("/static/images/9131894934_5e7c8d8654_h.jpg") no-repeat center center; 
 		background-position: 50% -500px;
+	}
+	.jumbotron h1{
+		font-size: 5rem;
+		line-height: 6rem;
+	}
+	.jumbotron h1 span{
+		padding: 1rem 2rem;
 	}
 }
 a.navbar-brand{
