@@ -184,5 +184,8 @@ section.submit{
 	text-align: center;
 	margin-top: 40px;
 }
+span.note{
+	font-weight: bold;
+}
 /* END - assignment */
 

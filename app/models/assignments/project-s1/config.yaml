@@ -35,6 +35,71 @@ in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
 officia deserunt mollit anim id est laborum.
 
+### Project description
+
+The semester project is to write an application that is a minimal clone of Eventbrite.  Here are the applicable “user stories”.
+
+* As any user, I can visit your site
+  * It uses bootstrap and therefore has some nice CSS defaults. You can include bootstrap from a CDN or serve it yourself.
+  * Every page has a ‘header’ and ‘footer’ element
+  * Every page has a link to the about page and the homepage in the ‘footer’ of the page. We will test the following pages:
+  * `/`, `/about`, `/events/new`, `/events/0`, `/events/1`, `/events/2`
+
+      ```javascript
+         var foo = 5;
+      ```
+* As any user, I can visit the url at ‘/’ and see your homepage, it has
+  * your team logo
+    * <span class="note">Grading Note:</span> the logo is in an “img” tag with `id="logo"`. It should be a png image with a .png extension.
+  * a list of events, including their details
+  * For grading, each event is in an “li” element with class=”event” and id=”event-{id}”, where “{id}” indicates the numerical id of the event. Each list element displays pertinent information about the event: title, date, and how many people are RSVPd etc. It should include the default events that come with the project.
+  * Every li element should have an HTML time tag that has a datetime attribute equal to the time in ISO 8601 format. The text of the tag should be the datetime in natural language, including the time.
+  * Events that are over are not shown
+  * Events are sorted such that the ones that are coming up the soonest are on top
+  * Each event’s title is a link to the “detail page” for that event, which should be at ‘/events/{{id}}’, where id refers to the id of the event, e.g. ‘/events/0’ would take me to the event with id zero.
+  * I can click a link to take me to /events/new. The link has id=”new”
+* As a user, I can visit your API at ‘/api/events’ and retrieve an object with key events containing all events in JSON format
+  * I can search for events by submitting a GET request to a URL like ‘/api/events?query=beach’ and only receive back events that have ‘beach’ in the event title. 
+* As any user, I can visit the url at ‘/about’ and see information about your company
+  * The about page has information about your team members, including:
+    * your names, each in a span tag with id attribute set to your netid
+    * a headshot of you each in an img tag with id=”{{netid}}-headshot”
+* The new event page
+  * exists
+  * has a form
+  * I must specify the following attributes of an event: title, location, image, year, month, day, hour, and minute. 
+    * There must be a form element with name=XYZ for each of these, where XYZ is title, location, etc.
+    * Every form element requires a label element with appropriate ‘for’ attribute.
+    * The year, month, day, hour, and minute form elements should be select elements.
+    * The minute should only have 0, and 30 as selections. (At the hour and half hour).
+    * The hour select should be in 24-hour time format: 0-23 are selectable.
+    * The month select should have integer value attributes and refer to months by their names: January, February, etc.
+    * You should only be able to schedule events in 2015 and 2016
+  * When submitted, the form should be validated:
+    * The image URL must begin with ‘http://’ or ‘https://’ and end with ‘.gif’ or ‘.png’.
+    * The title must be less than 50 characters
+    * The location must be less than 50 characters
+    * The year must be 2015 or 2016
+    * The hour must be 0-23
+    * The minute must be 0 or 30
+  * I can click a button with id=”submit” to submit the event
+  * After I’ve made an event, I see a confirmation page that shows me the event details that I just submitted. There is also a link back to the home page.
+  * If the form was not valid, I am taken back the form and the errors are shown on the form. Each error should b
+* As an attendee, I can visit the event detail page to RSVP for an event
+  * I submit my email address
+    * If I submit an invalid email address, the form is redisplayed with an error message.
+  * If I submit valid data, I see the event detail page again and it shows my email address on there along with the other attendees.
+
+### Project workflow and deployment
+
+Your will keep track of your work using the git version control system and deploy your application to Heroku, a cloud platform-as-a-service.
+
+* You do not, and likely should not, complete the project in the order of the stories that you see above.
+* The stories do not have a 1-to-1 correspondence with the
+tasks you need to complete. For example, a single bullet point may require
+a number of steps that you want to enumerate as issues on GitHub. Similarly,
+sometimes a single task will satisfy a number of the tests.
+
 ### Actions and deliverables
 
 1. Open an account on GeneralAssembly's [Dash](https://dash.generalassemb.ly)
