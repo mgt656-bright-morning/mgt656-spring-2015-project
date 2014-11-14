@@ -27,6 +27,8 @@ videos:
 
 ### Background
 
+The semester project is to write an application allows users to create
+and RSVP for upcoming events: essentially a minimal clone of Eventbrite.
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
 ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -37,40 +39,162 @@ officia deserunt mollit anim id est laborum.
 
 ### Project description
 
-The semester project is to write an application that is a minimal clone of Eventbrite.  Here are the applicable “user stories”.
+Code description
 
-* As any user, I can visit your site
-  * It uses bootstrap and therefore has some nice CSS defaults. You can include bootstrap from a CDN or serve it yourself.
-  * Every page has a ‘header’ and ‘footer’ element
-  * Every page has a link to the about page and the homepage in the ‘footer’ of the page. We will test the following pages:
-  * `/`, `/about`, `/events/new`, `/events/0`, `/events/1`, `/events/2`
+```
+.
+├── README.md     # A markdown file describing how to run the project code
+│
+├── package.json  # NPM configuration file that enumerates the dependencies
+│                 # of the app: links to code other people have written.
+│
+├── Gulpfile.js   # Configuration file for Gulp, which you use to run the
+│                 # the app while you're working on it. It automatically
+│                 # checks your code for syntax errors and bad style.
+│
+├── app.js        # The Express application is defined here.
+│
+├── config.js  # Contains a function that configures our application
+│
+├── start-app.js  # This script runs the app
+│
+├── test
+│   ├── mocha.opts
+│   └── test.js    # The tests that tell you if your code satisfies the user
+│                  # stories. We use the same tests for grading
+│
+│
+├── public             # Publically visible "assets" go in here. These are things
+│   └── stylesheets    # that are "static" like CSS and images.
+│       └── style.css
+│
+│
+├── models         # Our models are stored in this directory. Here we mean  
+│   └── events.js  # "models" in the MVC sense: they are the data in our application,
+│                  # in our case, just an array of events.
+│
+│
+├── views                 # Our "views" or "templates" go in here. View specify how
+│   ├── about.html        # the content produced by our controllers get turned into HTML
+│   ├── create-event.html
+│   ├── event.html
+│   ├── fragments              # Some templates are included in other templates;
+│   │   └── events-list.html   # we call these "fragments".
+│   ├── index.html             
+│   └── layout.html
+│
+└── controllers   # Our controllers go in here. Controllers are the "logic"
+    ├── about.js  # of our application.
+    ├── events.js
+    └── index.js
+ 
+```
 
-      ```javascript
-         var foo = 5;
+### Project description
+
+
+Below are the user stories you must complete for the project. 
+Here are the applicable [user stories](http://en.wikipedia.org/wiki/User_story)
+describing how your application should work.
+The stories below include implementation detials you would ordinarily not
+see in a user story. These are included to help you complete the project
+in manner consistent with the tests we included in `tests/test.js`. These
+tests will give you real-time feedback on your progress and also allow
+us to grade your project in an automated fashion.
+
+* As any user, I can visit your site and it looks *awesome*
+  * Every page uses the [Bootstrap](http://getbootstrap.com/) CSS framework
+    and therefore has some palatable defaults.
+    You can include bootstrap from a CDN or serve it from your application.
+    * <span class="note">Grading Note:</span> the Bootstrap CSS should
+      be included using a `link` element in the `head` with an `href` attribute
+      that has the word "bootstrap" in it, like "bootstrap.css" or "bootstrap-min.css".
+  * Every page has HTML5 `header` and `footer` elements.
+  * Every page has a link to the about page and the homepage in the `footer`
+    element of the page. 
+      For each we expect the `footer` element to have an `a` element with
+      an `href="/about"`.
+  * <span class="note">Grading Note:</span> In the above stories "every page"
+    will refer to the following for testing purposes: `/`, `/about`, `/events/new`, `/events/0`,
+    `/events/1`, `/events/2`. If you have not yet completed a particular page,
+    the page will be skipped. E.g. if you have a `/` page but no `/events/0`
+    page yet and `/` has Bootstrap included, the Bootstrap test will pass.
+    If one of the six pages exists and does not include Bootstrap, the test
+    will not pass.
+* As any user, I can visit the url at `/` and see your homepage, it has
+  * Your team logo
+    * <span class="note">Grading Note:</span> the logo is in an `img` tag with `id="logo"`. It should be a png image with a .png extension.
+  * A an unordered list of events, including their details
+    * <span class="note">Grading Note:</span> each event is in an `li`
+      element with `class="event"` and `id="event-{id}"`,
+      where `{id}` indicates the numerical id of the event. E.g. your
+      event list may look something like the following:
+
+      ```markup
+        <ul>
+          <li class="event" id="event-1">...</li>
+          <li class="event" id="event-2">...</li>
+        </ul>
       ```
-* As any user, I can visit the url at ‘/’ and see your homepage, it has
-  * your team logo
-    * <span class="note">Grading Note:</span> the logo is in an “img” tag with `id="logo"`. It should be a png image with a .png extension.
-  * a list of events, including their details
-  * For grading, each event is in an “li” element with class=”event” and id=”event-{id}”, where “{id}” indicates the numerical id of the event. Each list element displays pertinent information about the event: title, date, and how many people are RSVPd etc. It should include the default events that come with the project.
-  * Every li element should have an HTML time tag that has a datetime attribute equal to the time in ISO 8601 format. The text of the tag should be the datetime in natural language, including the time.
-  * Events that are over are not shown
-  * Events are sorted such that the ones that are coming up the soonest are on top
-  * Each event’s title is a link to the “detail page” for that event, which should be at ‘/events/{{id}}’, where id refers to the id of the event, e.g. ‘/events/0’ would take me to the event with id zero.
-  * I can click a link to take me to /events/new. The link has id=”new”
-* As a user, I can visit your API at ‘/api/events’ and retrieve an object with key events containing all events in JSON format
+    * Each list element displays pertinent information about the event:
+      title, date, and how many people are RSVPd etc. It should include
+      the default events that come with the project. E.g. in the above
+      example those details should be where you see "...".
+    * Every event `li` element should have an HTML5 `time` tag that has a `datetime`
+      attribute equal to the time in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601).
+      The text of the tag should be the datetime in natural language, including the time.
+      For example, it may look like
+        ```markup
+          <time datetime="2014-11-12 09:30:0.0+07:00">
+            Wednesday, Nov 12 at 9:30AM
+          </time>
+        ```
+    * The title for each event is a clickable link to the "detail page"
+      for that event, which should be at `/events/{{id}}`, where `id`
+      refers to the id of the event, e.g. `/events/0` would take me to the
+      event with id zero.
+    * Events that are over are not shown
+  * I can click a link to take me to `/events/new`. The link has `id="new"`
+* As a user, I can visit your API at `/api/events` and retrieve an object
+  with key events containing all events in
+  [JSON](http://en.wikipedia.org/wiki/JSON) format. For example, the
+  response may look akin to the following:
+  ```javascript
+    {
+      events: [
+        {
+          id: 0,
+          title: "...",
+          location: "...",
+          ...
+        },
+        {
+          id: 1,
+          title: "...",
+          location: "...",
+          ...
+        },
+      ]
+    }
+  ```
   * I can search for events by submitting a GET request to a URL like ‘/api/events?query=beach’ and only receive back events that have ‘beach’ in the event title. 
-* As any user, I can visit the url at ‘/about’ and see information about your company
-  * The about page has information about your team members, including:
-    * your names, each in a span tag with id attribute set to your netid
-    * a headshot of you each in an img tag with id=”{{netid}}-headshot”
-* The new event page
-  * exists
-  * has a form
+* As a user, I can visit the url at `/about` and see information about your company including:
+  * your names, each in a `span` tag with `id` attribute set to your class nickname
+  * a headshot of you each in an img tag with `id="{{nickname}}-headshot"`.
+    This does not have to actually be a picture of you.
+* As a user I can visit your page for creating new events at `/events/new`
+  * It should have a `form` for creating events. The form should have attribute `method="POST"`.
   * I must specify the following attributes of an event: title, location, image, year, month, day, hour, and minute. 
-    * There must be a form element with name=XYZ for each of these, where XYZ is title, location, etc.
-    * Every form element requires a label element with appropriate ‘for’ attribute.
-    * The year, month, day, hour, and minute form elements should be select elements.
+    * There must be a form element with `name={{field}}` for each of these, where "{{field}}" is title, location, etc.
+    * Every form element requires a `label` element with appropriate `for` attribute. For example:
+      ```markup
+        <form method="POST">
+          <label for="title">Put title here:</label>
+          <input type="text" name="title" id="title">
+          ... 
+        </form>
+      ```
+    * The year, month, day, hour, and minute form elements should be `select` elements.
     * The minute should only have 0, and 30 as selections. (At the hour and half hour).
     * The hour select should be in 24-hour time format: 0-23 are selectable.
     * The month select should have integer value attributes and refer to months by their names: January, February, etc.
@@ -82,13 +206,30 @@ The semester project is to write an application that is a minimal clone of Event
     * The year must be 2015 or 2016
     * The hour must be 0-23
     * The minute must be 0 or 30
-  * I can click a button with id=”submit” to submit the event
-  * After I’ve made an event, I see a confirmation page that shows me the event details that I just submitted. There is also a link back to the home page.
-  * If the form was not valid, I am taken back the form and the errors are shown on the form. Each error should b
+  * I can click a `input` element to submit the event. This element should have  `id="submit"` and `type="submit"`.
+  * If the submitted form is valid, I am redirected to the detail page for that new event.
+    This redirect is accomplished using a ["302" HTTP response](http://en.wikipedia.org/wiki/HTTP_302).
+    (See the documentation for the [Express.js response redirect method](http://expressjs.com/api.html#res.redirect))
+
+  * If the form was not valid, I am taken back the form and the errors are shown on the form.
+    * The errors should be enumerated in a `ul` element with `class="form-errors"`
+    * That `ul` element should have `li` elements for each error. For example, your errors
+      may look like this
+      ```markup
+        <ul class="form-errors">
+          <li>Error, the title must be between 0 and 50 characters</li>
+        </ul>
+      ```
 * As an attendee, I can visit the event detail page to RSVP for an event
-  * I submit my email address
-    * If I submit an invalid email address, the form is redisplayed with an error message.
-  * If I submit valid data, I see the event detail page again and it shows my email address on there along with the other attendees.
+  * I submit my email address by filling in a `form`. The form has `method="POST"`
+    and contains an `input` element with attributes type, id, and name all set to "email".
+    * If I submit an email address that does not end in "@yale.edu",
+      the form is redisplayed with an error message. (You should accept
+      any valid "@yale.edu" ending: "@Yale.edu", "@yALe.edu", etc.).
+    * The error messages displayed should be in a `ul` with `class="form-errors"`
+      in the same fashion as described in the event creation errors described.
+  * If I submit a valid email address, I see the event detail page again and
+    it shows my email address on there along with the other attendees.
 
 ### Project workflow and deployment
 
